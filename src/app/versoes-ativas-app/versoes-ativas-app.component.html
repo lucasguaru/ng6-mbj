@@ -1,0 +1,21 @@
+<h3>Versões Ativas do App</h3>
+<table class="table">
+    <thead>
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">Versão</th>
+        <th scope="col">Data Lançamento</th>
+        <th scope="col">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let versao of listaVersoesAtivas">
+            <th class="pointer" scope="row" (click)="selecionouVersao(versao)">{{ versao.id }}</th>
+            <td class="pointer" (click)="selecionouVersao(versao)">{{ versao.nomeVersao }}</td>
+            <td>{{ versao.dataLancamento }}</td>
+            <td>{{ versao.status }}</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<app-versoes-ativas-detail [versaoSelecionada]="versaoSelecionada" *ngIf="versaoSelecionada"></app-versoes-ativas-detail>
