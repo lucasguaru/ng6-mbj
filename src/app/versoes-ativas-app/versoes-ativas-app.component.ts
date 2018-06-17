@@ -1,6 +1,6 @@
-import { VersoesService } from './../services/versoes.service';
+import { Versao } from './../model/versao';
+import { VersaoService } from './../services/versao.service';
 import { Component, OnInit } from '@angular/core';
-import { VersoesAtivas } from '../model/versoes-ativas';
 
 @Component({
   selector: 'app-versoes-ativas-app',
@@ -9,14 +9,12 @@ import { VersoesAtivas } from '../model/versoes-ativas';
 })
 export class VersoesAtivasAppComponent implements OnInit {
 
-  listaVersoesAtivas: VersoesAtivas[];
-  versaoSelecionada: VersoesAtivas;
+  listaVersoesAtivas: Versao[];
+  versaoSelecionada: Versao;
 
-  constructor(private versoesService: VersoesService) { }
+  constructor(private versoesService: VersaoService) { }
 
   ngOnInit() {
-    this.listaVersoesAtivas = this.versoesService.getVersoesAtivas();
-    this.versoesService.atualizouValor.addListener('listaVersoesAtivas', event => console.log(event));
   }
 
   public selecionouVersao(versao) {
